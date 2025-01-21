@@ -3,16 +3,18 @@ import os.path
 from Score import add_score
 from Utils import *
 
-def welcome(name):
+def welcome():
+    return (f"Hello and welcome to the World of Games (WoG). \n"
+            f"Here you can find many cool games to play.")
 
-    return(f"Hello {name} and welcome to the World of Games (WoG). \n" 
-          f"Here you can find many cool games to play.")
 
 def load_game():
 
     # Delete the score file at the start of a new session
     if os.path.exists(SCORES_FILE_NAME):
         os.remove(SCORES_FILE_NAME)
+
+    welcome()
 
     chosen_game = None
     difficulty = None
@@ -22,6 +24,7 @@ def load_game():
         #Validate Game Choice
         while True:
            screen_cleaner()
+
            try:
                chosen_game = int(input("Please choose a game to play: \n"
                                        "1. Memory Game - a sequence of numbers will appear for 0.7 seconds and you have to guess it back\n"
@@ -82,7 +85,7 @@ def load_game():
             print("Thank you for playing! Goodbye!")
             break
 
-welcome("katya")
+
 load_game()
 
 

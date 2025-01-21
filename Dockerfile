@@ -3,5 +3,5 @@ WORKDIR /app
 COPY . /app
 COPY Scores.txt /Scores.txt
 RUN pip install -r requirements.txt
-EXPOSE 5000
+EXPOSE 8777
 CMD ["python", "MainScores.py"]

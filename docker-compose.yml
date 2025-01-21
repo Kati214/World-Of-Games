@@ -7,7 +7,7 @@ services:
     image: kati2070/world-of-games:latest 
 
     ports: 
-      - "5000:5000"
+      - "8777:8777"
 
     
 
