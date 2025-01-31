@@ -1,5 +1,10 @@
 pipeline{
-    agent any
+    agent{
+        docker{
+            image 'docker:24.0.6-dind'
+            args '--privileged  -v /var/run/docker.sock:/var/run/docker.sock'
+        } 
+    }
 
     environment {
         DOCKER_IMAGE = "kati2070/world-of-games:latest"
