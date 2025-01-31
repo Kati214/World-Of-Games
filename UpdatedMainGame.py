@@ -1,4 +1,3 @@
-import os.path
 
 from Score import add_score
 from Utils import *
@@ -10,12 +9,6 @@ def welcome():
 
 def load_game():
 
-    # Delete the score file at the start of a new session
-    if os.path.exists(SCORES_FILE_NAME):
-        os.remove(SCORES_FILE_NAME)
-
-    welcome()
-
     chosen_game = None
     difficulty = None
 
@@ -23,6 +16,7 @@ def load_game():
 
         #Validate Game Choice
         while True:
+
            screen_cleaner()
 
            try:
@@ -77,15 +71,27 @@ def load_game():
         else:
             print("Better luck next time! Your score remains unchanged.")
 
+        while True:
+            try:
+                # Ask the user if they want to play another game
+                play_again = input("Do you want to play another game? (yes/no): ").strip().lower()
 
-        # Ask the user if they want to play another game
-        play_again = input("Do you want to play another game? (yes/no): ").strip().lower()
+                if play_again == "yes":
+                    break
 
-        if play_again != "yes":
-            print("Thank you for playing! Goodbye!")
-            break
+                if play_again == "no":
+                    print("Thank you for playing! Goodbye!")
+                    return
+
+                else:
+                    print("Invalid input. Please enter 'yes' or 'no'")
+
+            finally:
+                pass
 
 
-load_game()
+
+if __name__ == "__main__":
+    load_game()
 
 

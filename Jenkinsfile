@@ -1,7 +1,7 @@
 pipeline{
     agent any
 
-    environment{
+    environment {
         DOCKER_IMAGE = "kati2070/world-of-games:latest"
         CONTAINER_NAME = "app_container"
         DUMMY_FILE = "Scores.txt"
@@ -17,6 +17,7 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Building Docker image using docker-compose... '
+                sh 'docker-compose --version' 
                 sh "docker-compose build"
             }
         }
