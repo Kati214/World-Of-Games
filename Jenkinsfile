@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'docker:lts'
-            args '--privileged  -v /var/run/docker.sock:/var/run/docker.sock'
+            image 'docker-windows:lts'
+            args '--privileged  -v //./pipe/docker_engine://./pipe/docker_engine'
         } 
     }
 
