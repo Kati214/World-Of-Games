@@ -63,17 +63,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            echo 'Cleaning up resources...'
-            sh "docker-compose down || true"
-        }
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-
-        failure {
-             echo 'Pipeline failed. Check logs for details.'
-        }
-    }
 }
